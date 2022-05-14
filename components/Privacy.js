@@ -24,7 +24,7 @@ function Privacy() {
 
         <div className="shipping__info flex pb-3">
           <h1 className="p-10 font-bold w-1/4">
-            At www.Kleemos.com, we collect.
+            At www.Tataroski.com, we collect.
           </h1>
           <div className="p-10 w-1/2">
             <ul className="pb-5">

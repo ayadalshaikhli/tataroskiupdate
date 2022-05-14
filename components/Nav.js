@@ -5,6 +5,7 @@ import MiniCart from "./MiniCart";
 import { BsBag } from "react-icons/bs";
 import { gsap, Expo } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import * as fbq from "../lib/google-analytics/";
 gsap.registerPlugin(ScrollTrigger);
 const tl = gsap.timeline({
   defaults: { ease: "power3.out" },
@@ -33,7 +34,8 @@ export default function Nav() {
       .from(".nav-main", {
         yPercent: -200,
         paused: true,
-        duration: 0.2,
+        duration: 0.1,
+        opacity: 0,
       })
       .progress(1);
 
@@ -49,37 +51,44 @@ export default function Nav() {
 
   return (
     <header className="fixed w-full  flex flex-col text-center z-20  text-white colornav navbar">
-      <div className="shipping text-center bg-gray-800/40">
+      <div className="shipping text-center bg-gray-800/75">
         <h1>
           {free} {Good}
         </h1>
       </div>
-      <div className="nav-main  flex flex-col sm:flex-row p-2 lg:max-w-screen-xl text-center items-center">
+      <div className="nav-main bg-gray-800/75 flex flex-col sm:flex-row p-2  text-center items-center">
         <div className="logo">
           <Link href="/" passHref>
             <a className="cursor-pointer">
               <h1 className="text-2xl pt-1   font-mono">
-                <span className="late-text">Klee</span>
-                <span className="omo">mos</span>
+                <span className="late-text">Tata</span>
+
+                <span className="omo">roski</span>
               </h1>
             </a>
           </Link>
         </div>
         <div className="nav-pages text-center md:ml-72 md:pl-96 flex justify-around">
           <div>
-            <a href="#body" className="cursor-pointer">
-              <span className="text-lg pt-1 px-2  sm:px-4">Body</span>
-            </a>
+            <Link href="/collections/body=">
+              <a href="#body" className="cursor-pointer">
+                <span className="text-lg pt-1 px-2  sm:px-4">Body</span>
+              </a>
+            </Link>
           </div>
           <div>
-            <a href="#sunglasses" className="cursor-pointer ">
-              <span className="text-lg pt-1 px-2  sm:px-4">Sunglasses</span>
-            </a>
+            <Link href="/collections/sunglasses-1">
+              <a href="/collections/sunglasses-1" className="cursor-pointer ">
+                <span className="text-lg pt-1 px-2  sm:px-4">Sunglasses</span>
+              </a>
+            </Link>
           </div>
           <div>
-            <a href="#earrings" className="cursor-pointer ">
-              <span className="text-lg pt-1 px-2  sm:px-4">Earrings</span>
-            </a>
+            <Link href="/collections/earrings">
+              <a href="#earrings" className="cursor-pointer ">
+                <span className="text-lg pt-1 px-2  sm:px-4">Earrings</span>
+              </a>
+            </Link>
           </div>
 
           <div className="nav-cart">

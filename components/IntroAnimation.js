@@ -9,7 +9,7 @@ export default function IntroAnimation() {
     gsap.to(".line", {
       xPercent: -100,
       duration: 2.0,
-      delay: 1,
+      delay: 3,
       stagger: 0.1,
       display: "none",
       ease: Expo.easeInOut,
@@ -17,14 +17,15 @@ export default function IntroAnimation() {
     gsap.to(".line-2", {
       xPercent: 100,
       duration: 2.0,
-      delay: 1,
+      delay: 3,
       stagger: 0.1,
       display: "none",
       ease: Expo.easeInOut,
     });
+
     gsap.to(".box", {
       duration: 2.0,
-      delay: 1,
+      delay: 3,
       display: "none",
       ease: Expo.easeInOut,
     });
@@ -42,23 +43,31 @@ export default function IntroAnimation() {
         <div className="grid grid-row-5 grid-flow-row min-h-screen ">
           <div
             style={{
-              background: "#9ec3ce",
+              background: "#CC2F15",
             }}
             className="line-2 "
           ></div>
           <div className="line bg-white text-white"></div>
           <div
             style={{
-              background: "#9ec3ce",
+              background: "#CC2F15",
             }}
             className="line-2  font-mono flex text-4xl justify-center items-center"
           >
-            Kleemos
+            <span className="omo">T</span>
+            <span className="omo">a</span>
+            <span className="omo">t</span>
+            <span className="omo">a</span>
+            <span className="omo">r</span>
+            <span className="omo">o</span>
+            <span className="omo">s</span>
+            <span className="omo">k</span>
+            <span className="omo">i</span>
           </div>
           <div className="line bg-white text-white"></div>
           <div
             style={{
-              background: "#9ec3ce",
+              background: "#CC2F15",
             }}
             className="line-2 "
           ></div>

@@ -9,11 +9,11 @@ function About() {
           <div className="shipping__details  text-center justify-start flex flex-col  ">
             <div className="shipping__info  flex pb-3 ">
               <p className="p-10 w-auto sm:w-1/2 text-center bg-gray-800/75 rounded-md">
-                STORY Kleemos is a newly established direct-to-consumer fashion
-                accessories brand, which means "undefined fashion". We hope to
-                create the "unique" one for everyone. We love every passion and
-                interest on Earth because it is a reference to the UNIQUENESS of
-                everything.
+                STORY Tataroski is a newly established direct-to-consumer
+                fashion accessories brand, which means "undefined fashion". We
+                hope to create the "unique" one for everyone. We love every
+                passion and interest on Earth because it is a reference to the
+                UNIQUENESS of everything.
               </p>
             </div>
             <div className="shipping__info flex pb-3">

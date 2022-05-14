@@ -31,7 +31,7 @@ const Lights = () => {
       <ambientLight intensity={0.1} />
       {/* Diretion light */}
       <directionalLight position={[10, 10, 5]} intensity={0.5} />
-      <directionalLight position={[-100, 10, 5]} intensity={1.5} />
+      <directionalLight position={[-100, 10, 5]} intensity={0.5} />
 
       <directionalLight
         castShadow
@@ -52,7 +52,7 @@ const Lights = () => {
 };
 
 function Green() {
-  const { nodes, materials } = useGLTF("/Glasses_Morpher.glb");
+  const { nodes, materials } = useGLTF("/bubble_animation.glb");
   const cup = useRef();
   const moon = useRef();
   const mark = useRef();
@@ -89,12 +89,12 @@ function Green() {
     // cup.current.rotation.x = 5.63;
     // cup.current.rotation.y = 4.1;
 
-    gsap.from(cam.current.position, 4, {
-      x: -3.5,
-      z: -3,
-
-      ease: Expo.easeOut,
-    });
+    // gsap.from(cam.current.position, 4, {
+    //   z: -23,
+    //   y: -4,
+    //   delay: 3,
+    //   ease: Expo.easeOut,
+    // });
     // gsap.from(cup.current.position, 60, {
     //   y: 1.412,
     //   ease: "none",
@@ -179,7 +179,9 @@ function Green() {
         // cup.current.rotation.x = -2 * Math.PI * self.progress;
         // cup.current.rotation.y = -1 * Math.PI * self.progress;
         // cam.current.position.x = -1 * Math.PI * self.progress;
-        cup.current.rotation.y = -2 * self.progress;
+        // cup.current.rotation.y = -2 * self.progress;
+        cam.current.position.z = -24 * self.progress;
+        cam.current.rotation.x = -0.22 * self.progress;
         // cam.current.position.z = 25 * self.progress;
 
         // cup.current.rotation.z = -2 * Math.PI * self.progress;
@@ -215,93 +217,259 @@ function Green() {
       <group
         ref={moon}
         rotation={[0, 0, 0]}
-        scale={35}
+        scale={2}
         position={[0, 0, 0]}
         dispose={null}
       >
         {/* <primitive object={firstGltf.scene} position={[0, 185, 0]} /> */}
         <group
           position={[0, 0, 0]}
-
+          ref={cup}
           // onPointerOver={(e) => (e.stopPropagation(), set(e.object.name))}
           // onPointerOut={(e) => (e.stopPropagation(), set(null))}
         >
           <group name="Scene">
-            <group name="Empty001" rotation={[-0.74, -0.55, -0.45]} />
-            <group ref={cup}>
-              <mesh
-                name="frame"
-                geometry={nodes.frame.geometry}
-                material={materials.Horn}
-                position={[0, 0.04, 0.0]}
-                rotation={[-0.1, -0.7, 0]}
-                castShadow
+            <group
+              name="Camera"
+              position={[0, 1.52, 24.11]}
+              rotation={[Math.PI / 2, 0, 0]}
+            >
+              <PerspectiveCamera
+                name="Camera_Orientation"
+                makeDefault={false}
+                far={1000}
+                near={0.1}
+                fov={13.69}
+                rotation={[-Math.PI / 2, 0, 0]}
+              />
+            </group>
+            <group
+              name="Empty004"
+              position={[-0.68, 3.63, 0.4]}
+              rotation={[-0.03, 0.01, 0]}
+            >
+              <group
+                name="Empty002"
+                position={[0, -1.19, 0]}
+                rotation={[0, Math.PI / 9, 0]}
               >
                 <mesh
-                  name="lenses"
-                  geometry={nodes.lenses.geometry}
-                  material={materials.Lens}
-                >
-                  <meshPhongMaterial
-                    attach="material"
-                    transparent
-                    opacity={0.7}
-                    roughness={0}
-                  />
-                </mesh>
-                <mesh
-                  name="Plane"
-                  geometry={nodes.Plane.geometry}
+                  name="Circle002"
+                  geometry={nodes.Circle002.geometry}
                   material={materials.Metal}
-                  castShadow
-                ></mesh>
-                <mesh
-                  name="earpiecewire"
-                  geometry={nodes.earpiecewire.geometry}
-                  material={materials.Metal}
-                  castShadow
                 />
                 <mesh
-                  name="earpiecewire001"
-                  geometry={nodes.earpiecewire001.geometry}
-                  material={materials.Metal}
-                  castShadow
+                  name="Circle003"
+                  geometry={nodes.Circle003.geometry}
+                  material={materials.cord}
                 />
                 <mesh
-                  name="frame002"
-                  geometry={nodes.frame002.geometry}
-                  material={materials.Horn}
-                  castShadow
-                  receiveShadow
-                >
-                  <meshStandardMaterial attach="material" color="black" />
-                </mesh>
-              </mesh>
+                  name="paper001"
+                  geometry={nodes.paper001.geometry}
+                  material={materials.paper}
+                />
+                <mesh
+                  name="Sphere001"
+                  geometry={nodes.Sphere001.geometry}
+                  material={nodes.Sphere001.material}
+                />
+              </group>
             </group>
+            <group
+              name="Empty005"
+              position={[-0.45, 3.63, -0.41]}
+              rotation={[0.03, 0, 0.01]}
+            >
+              <group
+                name="Empty"
+                position={[0.01, -1.8, -0.01]}
+                rotation={[0.01, -0.34, 0]}
+              >
+                <mesh
+                  name="Circle"
+                  geometry={nodes.Circle.geometry}
+                  material={materials.Metal}
+                />
+                <mesh
+                  name="paper"
+                  geometry={nodes.paper.geometry}
+                  material={materials.paper}
+                />
+                <mesh
+                  name="Sphere"
+                  geometry={nodes.Sphere.geometry}
+                  material={nodes.Sphere.material}
+                />
+              </group>
+              <mesh
+                name="Circle001"
+                geometry={nodes.Circle001.geometry}
+                material={materials.cord}
+                position={[0.01, -1.8, -0.01]}
+                rotation={[0.01, -0.17, 0]}
+              />
+            </group>
+            <group
+              name="Empty006"
+              position={[0.17, 3.63, 0.15]}
+              rotation={[-0.01, 0, 0]}
+            >
+              <group
+                name="Empty003"
+                position={[0, -1.5, -0.01]}
+                rotation={[0.01, -0.34, 0]}
+                scale={0.6}
+              >
+                <mesh
+                  name="Circle004"
+                  geometry={nodes.Circle004.geometry}
+                  material={materials.Metal}
+                />
+                <mesh
+                  name="paper002"
+                  geometry={nodes.paper002.geometry}
+                  material={materials.ruh}
+                />
+                <mesh
+                  name="Sphere002"
+                  geometry={nodes.Sphere002.geometry}
+                  material={nodes.Sphere002.material}
+                />
+              </group>
+              <mesh
+                name="Circle005"
+                geometry={nodes.Circle005.geometry}
+                material={materials.cord}
+                position={[0, -1.5, -0.01]}
+                rotation={[0.01, 0.01, 0]}
+              />
+            </group>
+            <group
+              name="Empty001"
+              position={[-0.51, 0.41, -0.1]}
+              rotation={[0, 0.66, 0]}
+            >
+              <group name="Cube" position={[0, 0, 0.1]}>
+                <mesh
+                  name="Mesh_6"
+                  geometry={nodes.Mesh_6.geometry}
+                  material={materials.fabric}
+                />
+                <mesh
+                  name="Mesh_7"
+                  geometry={nodes.Mesh_7.geometry}
+                  material={materials.fabricseam}
+                />
+              </group>
+              <group name="Cube001" position={[0, 0.22, 0.05]}>
+                <mesh
+                  name="Cube002_1"
+                  geometry={nodes.Cube002_1.geometry}
+                  material={materials.fabric}
+                />
+                <mesh
+                  name="Cube002_2"
+                  geometry={nodes.Cube002_2.geometry}
+                  material={materials.fabricseam}
+                />
+                <mesh
+                  name="Cube009"
+                  geometry={nodes.Cube009.geometry}
+                  material={materials.logo}
+                />
+              </group>
+              <mesh
+                name="Cube002"
+                geometry={nodes.Cube002.geometry}
+                material={materials.Metal}
+                position={[0, 0, 0.1]}
+              />
+              <mesh
+                name="Cube003"
+                geometry={nodes.Cube003.geometry}
+                material={materials.Metal}
+                position={[0, 0, 0.1]}
+              />
+              <mesh
+                name="Cube005"
+                geometry={nodes.Cube005.geometry}
+                material={materials.blk}
+                position={[0, 0, 0.1]}
+              />
+              <mesh
+                name="Cube011"
+                geometry={nodes.Cube011.geometry}
+                material={materials.Metal}
+                position={[0, 0, 0.1]}
+              />
+            </group>
+            <mesh
+              name="Plane"
+              geometry={nodes.Plane.geometry}
+              material={materials.floor}
+            />
+            <mesh
+              name="Plane001"
+              geometry={nodes.Plane001.geometry}
+              material={materials.wall}
+            />
             <mesh
               name="Plane002"
               geometry={nodes.Plane002.geometry}
-              material={materials.Material}
-              scale={2.32}
-              receiveShadow
-            >
-              <meshStandardMaterial attach="material" color="lightblue" />
-            </mesh>
+              material={materials.wall}
+            />
+            <group name="Plane003">
+              <mesh
+                name="Mesh_1"
+                geometry={nodes.Mesh_1.geometry}
+                material={materials.ruh}
+              />
+              <mesh
+                name="Mesh_2"
+                geometry={nodes.Mesh_2.geometry}
+                material={materials.wall}
+              />
+            </group>
             <mesh
-              name="leave_1_2"
-              geometry={nodes.leave_1_2.geometry}
-              material={materials.blank}
-              position={[0.52, 0.11, -0.16]}
-              rotation={[-0.84, 0.92, 1]}
-              castShadow
+              name="Circle006"
+              geometry={nodes.Circle006.geometry}
+              material={nodes.Circle006.material}
+              position={[0.08, 0, -0.44]}
             />
             <mesh
-              name="leave_1_2001"
-              geometry={nodes.leave_1_2001.geometry}
-              material={materials.blank}
-              position={[0.52, 0.11, -0.56]}
-              rotation={[-11.2, -12.07, -0.87]}
-              castShadow
+              name="Circle007"
+              geometry={nodes.Circle007.geometry}
+              material={materials.Metal}
+              position={[0.08, 0, -0.44]}
+            />
+            <mesh
+              name="Circle008"
+              geometry={nodes.Circle008.geometry}
+              material={materials.wall}
+              position={[0.14, 0.45, -0.49]}
+            />
+            <mesh
+              name="Circle009"
+              geometry={nodes.Circle009.geometry}
+              material={materials.ruh}
+            />
+            <mesh
+              name="Circle010"
+              geometry={nodes.Circle010.geometry}
+              material={materials.Metal}
+              position={[0.17, 2.13, 0.15]}
+            />
+            <mesh
+              name="Circle011"
+              geometry={nodes.Circle011.geometry}
+              material={materials.Metal}
+              position={[-0.45, 1.83, -0.41]}
+            />
+            <mesh
+              name="Circle012"
+              geometry={nodes.Circle012.geometry}
+              material={materials.Metal}
+              position={[-0.68, 2.44, 0.4]}
             />
           </group>
         </group>
@@ -310,11 +478,10 @@ function Green() {
       <group
         ref={cam}
         name="Camera"
-        position={[-2, -3, 6]}
+        position={[0, -3, -3]}
         rotation={[0, 0, 0]}
-        rotation-x={-Math.PI * 0.2}
       >
-        <PerspectiveCamera makeDefault fov={25} position={[1, 5.8, 0]}>
+        <PerspectiveCamera makeDefault fov={25} position={[0, 5, 0]}>
           <directionalLight
             position={[300, 130, 15]}
             shadow-camera-right={8}
@@ -404,12 +571,13 @@ const HTMLContent = ({ products }) => {
 //     </div>
 //   );
 // }
+
 function Dolly() {
   // This one makes the camera move in and out
 
   useFrame(({ clock, camera }) => {
-    camera.position.z = 25 + Math.sin(clock.getElapsedTime()) * 2;
-    camera.rotateX = -25;
+    camera.position.z = 20 + Math.sin(clock.getElapsedTime()) * 1;
+    // camera.rotateX = -25;
   });
   return null;
 }
@@ -441,4 +609,4 @@ export default function Hero({ products }) {
   );
 }
 
-useGLTF.preload("/Glasses_Morpher.glb");
+useGLTF.preload("/bubble_animation.glb");

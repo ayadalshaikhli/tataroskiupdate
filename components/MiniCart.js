@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { CartContext } from "../context/shopContext";
 import { formatter } from "../utils/helpers";
+import * as fbq from "../lib/google-analytics/";
 
 export default function MiniCart({ cart }) {
   const cancelButtonRef = useRef();
@@ -16,6 +17,10 @@ export default function MiniCart({ cart }) {
   cart.map((item) => {
     cartTotal += item?.variantPrice * item?.variantQuantity;
   });
+
+  const handleClick = () => {
+    fbq.event("checkout", { currency: "USD", value: { cartTotal } });
+  };
 
   return (
     <Transition.Root show={cartOpen} as={Fragment}>
@@ -151,16 +156,23 @@ export default function MiniCart({ cart }) {
                         Shipping and taxes calculated at checkout.
                       </p>
                       <div className="mt-6">
-                        <a
-                          href={checkoutUrl}
-                          className="flex justify-center items-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-black hover:bg-gray-800"
+                        <button
+                          onClick={() => {
+                            handleClick;
+                            console.log("mark");
+                          }}
                         >
-                          Checkout
-                        </a>
+                          <a
+                            href={checkoutUrl}
+                            className="flex justify-center items-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-black hover:bg-gray-800"
+                          >
+                            Checkout
+                          </a>
+                        </button>
                       </div>
                       <div className="mt-6 flex justify-center text-sm text-center text-gray-500">
                         <p>
-                          or{" "}
+                          or
                           <button
                             type="button"
                             className="font-medium hover:text-gray-800"

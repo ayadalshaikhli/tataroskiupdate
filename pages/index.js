@@ -17,6 +17,7 @@ import ThirdCollectionList from "../components/thirdcollection/ThirdCollectionLi
 import { gsap, Expo } from "gsap/dist/gsap";
 import CollectionList from "../components/collections/CollectionList";
 import { FB_PIXEL_ID } from "../lib/google-analytics/";
+import * as fbq from "../lib/google-analytics/";
 
 const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
 export default function Home({ products, collections }) {
@@ -33,8 +34,11 @@ export default function Home({ products, collections }) {
       y: -100,
       ease: Expo.easeInOut,
     });
-    gsap.from(".omo", 3, {
-      y: 500,
+    gsap.from(".omo", {
+      y: 3,
+      duration: 1,
+      stagger: 0.1,
+      repeat: -1,
       ease: Expo.easeInOut,
     });
   });
@@ -45,7 +49,7 @@ export default function Home({ products, collections }) {
   return (
     <div className="relative body">
       <Head>
-        <title>Kleemos</title>
+        <title>Tataroski</title>
         <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
         <meta
           httpEquiv="Content-Type"
@@ -58,7 +62,7 @@ export default function Home({ products, collections }) {
           create the unique one for everyone. We love every passion and interest
           on Earth because it is a reference to the UNIQUENESS of everything."
         />
-        <meta property="og:title" content="Kleemos" />
+        <meta property="og:title" content="Tataroski" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.buildnextshop.com" />
         <meta
@@ -73,7 +77,7 @@ export default function Home({ products, collections }) {
           on Earth because it is a reference to the UNIQUENESS of everything."
         />
         <meta property="og:locale" content="en_US" />
-        <meta property="og:site_name" content="Kleemos" />
+        <meta property="og:site_name" content="Tataroski" />
         <meta
           name="facebook-domain-verification"
           content="5k5hrsed2somg2xlalgqjgtzzlk3e1"
@@ -97,9 +101,6 @@ export default function Home({ products, collections }) {
         animate="animate"
         className="wrap"
       >
-        <button type="button mt-94" onClick={handleClick}>
-          Buy $10
-        </button>
         <FrontPage />
         <CollectionList collections={collections} />
         <ProductList products={products} />

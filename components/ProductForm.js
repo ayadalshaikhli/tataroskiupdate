@@ -160,6 +160,9 @@ export default function ProductForm({ product }) {
       },
     },
   };
+  const handleClick = () => {
+    fbq.event("AddToCart", { currency: "USD", value: 90 });
+  };
 
   return (
     <>
@@ -281,7 +284,7 @@ export default function ProductForm({ product }) {
               zIndex: "50",
             }}
             onClick={() => {
-              addToCart(selectedVariant);
+              addToCart(selectedVariant), handleClick;
             }}
             className="flex bg-black w-full  justify-center mt-3  py-5 text-center  rounded-lg z-50   text-white sm:px-2 sm:py-3 sm:mt-3 hover:bg-green-800"
           >

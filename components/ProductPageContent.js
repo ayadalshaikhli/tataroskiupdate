@@ -138,10 +138,10 @@ export default function ProductPageContent({ product }) {
         </p>
 
         {/* <ProductReviews /> */}
-        {/* <RecommendedList
-        current={product.id}
-        products={product.collections.edges[0].node.products.edges}
-      /> */}
+        <RecommendedList
+          current={product.id}
+          products={product.collections.edges[0].node.products.edges}
+        />
       </motion.div>
     </>
   );

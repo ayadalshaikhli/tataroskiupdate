@@ -15,7 +15,7 @@ export default function FrontPage() {
     gsap.from(".firstWord", {
       xPercent: 100,
       duration: 3.0,
-      delay: 2.5,
+      delay: 3.5,
       ease: Expo.easeInOut,
     });
     tl.from(".simp", 1, {
@@ -23,7 +23,7 @@ export default function FrontPage() {
       opacity: 0,
       stagger: 0.15,
       scale: ".8",
-      delay: 3.0,
+      delay: 4.5,
       ease: Expo.easeInOut,
     });
 
@@ -99,20 +99,15 @@ export default function FrontPage() {
         style={{
           fontSize: "8.3rem",
         }}
-        className="text-opening"
+        className="text-opening text-lg"
       >
         <h1 className="firstWord">
-          Elegant <span className="simp">in Their</span>
-          <span className="simp"> S</span>
-          <span className="simp">i</span>
-          <span className="simp">m</span>
-          <span className="simp">p</span>
-          <span className="simp">l</span>
-          <span className="simp">i</span>
-          <span className="simp">c</span>
-          <span className="simp">i</span>
-          <span className="simp">t</span>
-          <span className="simp">y</span>
+          Shine <span className="simp">Bright</span>
+          <span className="simp"> In</span>
+          <span className="simp">G</span>
+          <span className="simp">O</span>
+          <span className="simp">L</span>
+          <span className="simp">D</span>
         </h1>
       </div> */}
     </div>

@@ -15,7 +15,7 @@ const CollectionCard = ({ collection }) => {
   const onMouseLeave = () => setIsHovered(false);
   return (
     <Link passHref href={`/collections/${handle}`}>
-      <a className="group pb-8">
+      <a className="group pb-8 mb-5">
         <div
           className="w-full bg-gray-900 rounded-t-2xl overflow-hidden"
           onMouseEnter={onMouseEnter}
@@ -46,7 +46,7 @@ const CollectionCard = ({ collection }) => {
           </div>
         </div>
         <div className="bg-white rounded-b-2xl pt-2 h-1/3 flex flex-col justify-center">
-          <h3 className="mt-4 text-lg font-medium text-gray-900 uppercase">
+          <h3 className="pl-2  mt-4  text-lg font-medium text-gray-900 uppercase">
             {title}
           </h3>
           <div className="flex mt-1 text-sm px-2">
