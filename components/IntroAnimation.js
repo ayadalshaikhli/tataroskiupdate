@@ -9,7 +9,7 @@ export default function IntroAnimation() {
     gsap.to(".line", {
       xPercent: -100,
       duration: 2.0,
-      delay: 3,
+      delay: 1,
       stagger: 0.1,
       display: "none",
       ease: Expo.easeInOut,
@@ -17,7 +17,7 @@ export default function IntroAnimation() {
     gsap.to(".line-2", {
       xPercent: 100,
       duration: 2.0,
-      delay: 3,
+      delay: 1,
       stagger: 0.1,
       display: "none",
       ease: Expo.easeInOut,
@@ -25,7 +25,7 @@ export default function IntroAnimation() {
 
     gsap.to(".box", {
       duration: 2.0,
-      delay: 3,
+      delay: 1,
       display: "none",
       ease: Expo.easeInOut,
     });
