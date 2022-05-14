@@ -74,7 +74,10 @@ export default function Home({ products, collections }) {
         />
         <meta property="og:locale" content="en_US" />
         <meta property="og:site_name" content="Kleemos" />
-
+        <meta
+          name="facebook-domain-verification"
+          content="5k5hrsed2somg2xlalgqjgtzzlk3e1"
+        />
         <link
           href="https://fonts.googleapis.com/css2?family=Gilda+Display&display=swap"
           rel="stylesheet"

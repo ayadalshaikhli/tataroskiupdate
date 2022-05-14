@@ -15,6 +15,7 @@ function MyApp({ Component, pageProps }) {
   const router = useRouter();
 
   useEffect(() => {
+    fbq.pageview();
     const handleRouteChange = () => {
       fbq.pageview();
     };
