@@ -9,15 +9,14 @@ import { useRouter } from "next/router";
 import Script from "next/script";
 import ga from "../lib/google-analytics/";
 import { AnimatePresence, motion } from "framer-motion";
-import fbq from "../lib/google-analytics/";
+import * as fbq from "../lib/google-analytics/";
 import { FB_PIXEL_ID } from "../lib/google-analytics/";
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
 
   useEffect(() => {
-    const handleRouteChange = (url) => {
+    const handleRouteChange = () => {
       fbq.pageview();
-      ga.pageview(url);
     };
     router.events.on("routeChangeComplete", handleRouteChange);
     return () => {
@@ -44,7 +43,7 @@ function MyApp({ Component, pageProps }) {
           `,
         }}
       />
-      <Script
+      {/* <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GOOGLE_ANALYTICS_ID}`}
         strategy="afterInteractive"
       />
@@ -57,7 +56,7 @@ function MyApp({ Component, pageProps }) {
      
        gtag('config', '${process.env.GOOGLE_ANALYTICS_ID}');
       `}
-      </Script>
+      </Script> */}
 
       <ShopProvider>
         <Layout>
