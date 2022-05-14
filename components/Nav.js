@@ -70,7 +70,7 @@ export default function Nav() {
         </div>
         <div className="nav-pages text-center md:ml-72 md:pl-96 flex justify-around">
           <div>
-            <Link href="/collections/body=">
+            <Link href="/collections/body">
               <a href="#body" className="cursor-pointer">
                 <span className="text-lg pt-1 px-2  sm:px-4">Body</span>
               </a>

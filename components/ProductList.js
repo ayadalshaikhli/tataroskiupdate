@@ -48,15 +48,9 @@ const ProductList = ({ products }) => {
   // });
 
   return (
-    <div
-      style={{
-        backgroundColor: "#8F1106",
-      }}
-      id="body"
-      className="relative product-list"
-    >
+    <div id="body" className="relative product-list bg-gray-100">
       <div className="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-        <h1 className="text-2xl py-10 font-extrabold text-white ">Products</h1>
+        <h1 className="text-2xl py-10 font-extrabold text-black ">Body</h1>
         <div className="grid grid-cols-2 gap-y-50 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 xl:gap-4">
           {products.map((product) => (
             <ProductCard key={product.node.id} product={product} />

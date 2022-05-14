@@ -17,11 +17,11 @@ const CollectionCard = ({ collection }) => {
     <Link passHref href={`/collections/${handle}`}>
       <a className="group pb-8 mb-5">
         <div
-          className="w-full bg-gray-900 rounded-t-2xl overflow-hidden"
+          className="w-full bg-gray-900  overflow-hidden"
           onMouseEnter={onMouseEnter}
           onMouseLeave={onMouseLeave}
         >
-          <div className="relative group-hover:opacity-75 h-56">
+          <div className="relative group-hover:opacity-75 h-80 w-full">
             <Image
               src={collection.node.image.url}
               alt="j"
@@ -45,11 +45,12 @@ const CollectionCard = ({ collection }) => {
           )} */}
           </div>
         </div>
-        <div className="bg-white rounded-b-2xl pt-2 h-1/3 flex flex-col justify-center">
-          <h3 className="pl-2  mt-4  text-lg font-medium text-gray-900 uppercase">
+        <div className=" rounded-b-2xl mt-3 pt-2 h-1/3 flex flex-col justify-center">
+          <h3 className=" mb-3 text-left text-xl sm:text-3xl font-mono text-black uppercase">
             {title}
           </h3>
-          <div className="flex mt-1 text-sm px-2">
+          <p className="text-black">{collection.node.description}</p>
+          <div className="flex mt- text-lg px-2">
             <p className="pr-2 text-red-700 line-through">
               {/* {formatter.format(compare)} */}
             </p>

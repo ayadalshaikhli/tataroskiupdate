@@ -47,9 +47,9 @@ const CollectionProductCard = ({ product }) => {
         transition={{ delay: 1.2 }}
         initial="initial"
         animate="animate"
-        className="pb-8"
+        className="pb-8 mb-6 "
       >
-        <a className="group pb-8 ">
+        <a className="group pb-8">
           <motion.div
             variants={fadeInUp}
             className="w-full bg-gray-900 rounded-t-2xl overflow-hidden"

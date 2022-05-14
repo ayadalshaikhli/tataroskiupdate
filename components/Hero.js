@@ -282,7 +282,7 @@ function Green() {
               />
               <mesh
                 geometry={nodes.paper002.geometry}
-                material={materials.paper}
+                material={materials.ruh}
               />
               <mesh
                 geometry={nodes.Sphere002.geometry}
@@ -505,4 +505,4 @@ export default function Hero({ products }) {
   );
 }
 
-useGLTF.preload("/bubble_animation.glb");
+useGLTF.preload("/bu3312ationnn.glb");
