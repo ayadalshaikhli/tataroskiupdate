@@ -80,7 +80,7 @@ export default function Home({ products, collections }) {
         <meta property="og:site_name" content="Tataroski" />
         <meta
           name="facebook-domain-verification"
-          content="5k5hrsed2somg2xlalgqjgtzzlk3e1"
+          content="wc5r4xfbkjzdg2zx2ajl7s08v7w8ec"
         />
         <link
           href="https://fonts.googleapis.com/css2?family=Gilda+Display&display=swap"
